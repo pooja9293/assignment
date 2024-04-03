@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Text Layout</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #ff6b6b;
+            padding: 15px 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-right: 3%;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+        }
+
+        .nav-image img {
+            max-width: 20px;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            display: flex;
+            height: 90vh;
+        }
+
+        .text-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            /* Add a border at the bottom */
+        }
+
+        .text-heading {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 70%;
+        }
+
+        .text-content {
+            padding: 10px;
+            width: 70%;
+        }
+
+        .text-heading h5 {
+            margin: 0;
+            font-family: sans-serif;
+            font-size: 45px;
+            font-weight: bold;
+            letter-spacing: 7px;
+        }
+
+        .text-content p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 55%;
+        }
+
+        .image-container {
+            flex: 1;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            border-bottom: 20px solid rgba(3, 3, 3, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .image-grid {
+            --gap: 16px;
+            --num-cols: 2;
+            --row-height: 180px;
+            /* Set the row height to 200px for square images */
+            box-sizing: border-box;
+            padding: var(--gap);
+            display: grid;
+            grid-template-columns: repeat(var(--num-cols), 1fr);
+            grid-auto-rows: var(--row-height);
+            gap: var(--gap);
+            max-width: 90%;
+            /* Set the maximum width of the image grid */
+            margin: 80px auto 0;
+            margin-left: 10rem;
+
+
+            /* Center the image grid */
+        }
+
+        .image-grid>img {
+            width: 200px;
+            height: 100%;
+            max-width: 100%;
+            /* Ensure the image doesn't exceed its container */
+            object-fit: cover;
+        }
+
+        .image-grid-col-2 {
+            grid-column: span 2;
+        }
+
+        .image-grid-row-2 {
+            grid-row: span 2;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .image-grid {
+                --num-cols: 2;
+                --row-height: 200px;
+                /* Adjusted row height for smaller screens */
+            }
+        }
+
+        /* Specific positioning for the images */
+        .image-grid img:nth-child(2) {
+            grid-row: 2;
+            /* Change the grid row to 2 */
+            grid-column: 1;
+            /* Keep the grid column as 1 */
+        }
+
+        .image-grid img:nth-child(3) {
+            grid-row: 1 / span 2;
+            /* Span 2 rows starting from row 1 */
+            grid-column: 2;
+            /* Keep the grid column as 2 */
+        }
+
+        .custom-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+
+            height: 600px;
+            justify-content: space-between;
+            /* Adjust alignment to space between */
+        }
+
+        .second-container {
+            flex-grow: 1;
+            /* Allow the second container to grow */
+            max-width: 450px;
+            /* Increase the maximum width */
+            padding: 20px;
+            /* Adjust padding */
+            height: 240px;
+            margin-right: 7rem;
+            margin-top: 155px;
+            background-color: #ff6b6b;
+            /* Reduce the height */
+        }
+
+        .second-container h1 {
+            font-size: 45px;
+            font-family: sans-serif;
+            letter-spacing: 6PX;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#order">Order</a></li>
+            <li><a href="#food">Food</a></li>
+            <li><a href="#restaurant">Restaurant</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+            <li class="nav-image"><img src="menu-bar.png" alt="Symbol"></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="text-container">
+            <div class="text-heading">
+                <h5>LOREM IPSUM</h5>
+            </div>
+            <br>
+            <div class="text-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed
+                    cursus
+                    ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Curabitur nec faucibus
+                    purus.
+                    Quisque congue sem nec justo mollis, in tincidunt erat pretium. Sed pulvinar, massa ac porta
+                    viverra.
+                </p>
+            </div>
+            <a href="next.html" class="button">Click Me</a>
+        </div>
+        <div class="image-container">
+            <img src="pexels-robin-stickel-70497.jpg" alt="Your Image">
+        </div>
+    </div>
+    <div class="custom-container">
+        <div class="image-grid">
+            <img src="pexels-eva-bronzini-6141651.jpg" alt="image1">
+            <img src="pexels-mister-mister-3434523.jpg" alt="image2">
+            <img class="image-grid-col-2 image-grid-row-2" src="pexels-rachel-claire-6752433.jpg" alt="image3">
+        </div>
+        <div class="second-container">
+            <h3>LOREM IPSUM</h3>
+            <h1>LOREM IPSUM <br>SET ADEMIR</h1>
+            <p style="font-family:sans-serif;">Click <img src="icons8-arrow-30.png" alt="Arrow Icon"></p>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
